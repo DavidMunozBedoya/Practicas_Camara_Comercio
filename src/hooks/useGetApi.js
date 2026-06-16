@@ -24,6 +24,7 @@ export function useGetApi(limit = 21) {
     }
   }, [limit]);
 
+  // solo se encarga de llamar la función 
   useEffect(() => {
     getApi();
   }, [limit]);
