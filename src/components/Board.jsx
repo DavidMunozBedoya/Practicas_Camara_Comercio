@@ -1,7 +1,11 @@
 import { useState } from "react";
 
 function Square({ value, onSquareClick }) {
-  return <button className="border-1" onClick={onSquareClick}>{value}.</button>;
+  return (
+    <button className="square border" onClick={onSquareClick}>
+      {value}.
+    </button>
+  );
 }
 
 export default function Board() {
@@ -30,7 +34,7 @@ export default function Board() {
   if (winner) {
     status = "Ganador: " + winner;
   } else {
-    status = "Siguiente jugador: " + (xIsNext ? "X" : "O");
+    status = "Turno para: " + (xIsNext ? "X" : "O");
   }
 
   return (
@@ -39,8 +43,8 @@ export default function Board() {
         <div className="status">{status}</div>
         <div className="board-row grid grid-cols-3">
           <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-          <Square value={squares[2]} onSquareClick={() => handleClick(1)} />
-          <Square value={squares[1]} onSquareClick={() => handleClick(2)} />
+          <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
+          <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
         </div>
         <div className="board-row grid grid-cols-3">
           <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
