@@ -1,13 +1,8 @@
 import { useState } from "react";
-import { calculateWinner } from "../helpers/calculateWinner";
+import { Square } from "./Squares";
+import { calculateWinner } from "../../helpers/calculateWinner";
 // componente hijo
-function Square({ value, onSquareClick }) {
-  return (
-    <button className="square border" onClick={onSquareClick}>
-      {value}.
-    </button>
-  );
-}
+
 // componente padre
 export default function Board() {
   const [xIsNext, setXIsNext] = useState(true);
@@ -20,12 +15,8 @@ export default function Board() {
 
     const nextSquare = [...squares];
 
-    if (xIsNext) {
-      nextSquare[i] = "X";
-    } else {
-      nextSquare[i] = "O";
-    }
-
+    xIsNext ? (nextSquare[i] = "X") : (nextSquare[i] = "O");
+    
     setSquares(nextSquare);
     setXIsNext(!xIsNext);
   }

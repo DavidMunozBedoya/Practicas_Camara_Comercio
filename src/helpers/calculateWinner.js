@@ -18,6 +18,5 @@ export function calculateWinner(squares) {
     }
   }
 
-  
   return null;
 }
