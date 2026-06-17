@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Square } from "./Squares";
 import { calculateWinner } from "../../helpers/calculateWinner";
-// componente hijo
 
-// componente padre
+// Componente padre
 export default function Board() {
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
