@@ -1,9 +1,9 @@
-import Board from "./components/board/Board";
+import { Comment } from "./components/Comment";
 
 function App() {
   return (
     <>
-    <Board />
+    <Comment />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { Square } from "./Squares";
+import  Square  from "./Squares";
 import { useTicTacToe } from "../../hooks/useTicTacToe";
 
 // Componente padre
