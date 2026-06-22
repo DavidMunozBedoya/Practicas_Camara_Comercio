@@ -27,7 +27,7 @@ export function useGetApi(limit = 21) {
   // solo se encarga de llamar la función 
   useEffect(() => {
     getApi();
-  }, [limit]);
+  }, [getApi]);
 
   return pokemon;
 }

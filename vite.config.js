@@ -12,5 +12,12 @@ export default defineConfig({
   ],
   server: {
     open: true,
-  }
+    proxy: {
+      "/api": {
+        target: "http://apiclient.besoccerapps.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });

@@ -1,9 +1,12 @@
-import { Comment } from "./components/Comment";
+import CardFootbolAll from "./components/footbol/CardFootbolAll";
+import InputFootbol from "./components/footbol/InputFootbol";
+
 
 function App() {
   return (
     <>
-    <Comment />
+    <InputFootbol />
+    <CardFootbolAll  />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { useGetApi } from "../hooks/useGetApi";
 export default function Card() {
   
   const pokemons = useGetApi();
+  console.log("componente pokemon: ", pokemons)
 
   return (
     <div className="grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
