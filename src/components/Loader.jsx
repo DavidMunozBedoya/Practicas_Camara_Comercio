@@ -1,10 +1,9 @@
 import { useContext } from "react";
-import { LoaderContex } from "../context/LoaderContext";
+import { LoaderContext } from "../context/LoaderContext";
 
 export default function Loader() {
 
-    
-    const {isLoading} = useContext(LoaderContex);
+    const {isLoading} = useContext(LoaderContext);
     if(!isLoading) return;
 
   return (

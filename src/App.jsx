@@ -1,33 +1,34 @@
-/* import { useState } from "react";
-import InputFootbol from "./components/footbol/InputFootbol";
-import CardFootbolAll from "./components/footbol/CardFootbolAll"; */
-/* import { SpinnerContextProvider } from "./context/SpinnerContext"; */
-/* import Spinner from "./components/Spinner"; */
-/* import { useGetApiFootbol } from "./hooks/useGetApiFootbol"; */
-import { LoaderContexProvider } from "./context/LoaderContext";
-import Loader from "./components/Loader";
-import Card from "./components/Card";
+import { LoaderContextProvider } from "./context/LoaderContext";
 import { Modal } from "./components/Modal";
-
-//context
-/* import { useState } from "react";
-import { Mycontext } from "./context/MyContext";
-import MyComponent from "./components/MyComponent"; */
+import { ContainerPokemons } from "./components/pokemon/ContainerPokemons";
+import Loader from "./components/Loader";
 
 function App() {
-    /* const [league, setLeague] = useState(1);
+  /* const [league, setLeague] = useState(1);
   const changeLeague = (value) => setLeague(value);
   const teams = useGetApiFootbol(league); */
 
+  
+
   return (
-    <div>
+    /*  <div>
       <LoaderContexProvider>
         <Loader />
         <Modal />
         <Card />
       </LoaderContexProvider>
     </div>
-   
+ */
+    <div>
+      <>
+        <Modal />        
+        <LoaderContextProvider>
+          <Loader />
+          <ContainerPokemons />
+        </LoaderContextProvider>
+      </>
+    </div>
+
     /* {<LoaderContexProvider>
       <Card />
     </LoaderContexProvider>}

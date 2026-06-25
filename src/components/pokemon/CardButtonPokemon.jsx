@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetApi } from "../hooks/useGetApi";
+import { useGetApi } from "../../hooks/useGetApi";
 
 export default function Card() {
   const [idActual, setIdActual] = useState(0);

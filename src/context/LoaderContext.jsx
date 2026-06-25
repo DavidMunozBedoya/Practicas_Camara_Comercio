@@ -2,10 +2,10 @@ import { createContext, useState } from "react";
 import Loader from "../components/Loader";
 
 //contexto
-export const LoaderContex = createContext();
+export const LoaderContext = createContext();
 
 //provider
-export const LoaderContexProvider = ({ children }) => {
+export const LoaderContextProvider = ({ children }) => {
   //creo el estado
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,9 +16,9 @@ export const LoaderContexProvider = ({ children }) => {
   };
 
   return (
-    <LoaderContex.Provider value={{ isLoading, toggleLoading }}>
-      <Loader isLoading={isLoading} />
+    <LoaderContext.Provider value={{ isLoading, toggleLoading }}>
+      <Loader />
       {children}
-    </LoaderContex.Provider>
+    </LoaderContext.Provider>
   );
 };
