@@ -1,17 +1,18 @@
 import axios from "axios";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
+import { LoaderContex } from "../context/LoaderContext";
 
-export function useGetApi(limit = 21) {
+export function useGetApi(limit = 20) {
   const [pokemon, setPokemon] = useState([]);
+  const URL = "https://pokeapi.co/api/v2/pokemon?limit=";
+  const { toggleLoading } = useContext(LoaderContex);  
 
   const getApi = useCallback(async () => {
+
+    toggleLoading(true);
     try {
       //consulto la api para obtener datos
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon?limit=${limit}`,
-      );
-      /* console.log("primer consumo: ", response.data); */ // esta respuesta solo trae la url de cada pokemón
-
+      const response = await axios.get(`${URL}${limit}`);
       //consulto los detalles de cada pokemon y los mapeo para extraerlo
       const pokemonDetails = await Promise.all(
         response.data.results.map((pokemon) => axios.get(pokemon.url)),
@@ -21,10 +22,12 @@ export function useGetApi(limit = 21) {
       setPokemon(pokemonDetails.map((res) => res.data));
     } catch (error) {
       console.log(error);
+    } finally {
+      toggleLoading(false);
     }
   }, [limit]);
 
-  // solo se encarga de llamar la función 
+  // solo se encarga de llamar la función
   useEffect(() => {
     getApi();
   }, [getApi]);

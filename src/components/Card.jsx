@@ -1,38 +1,40 @@
 import { useGetApi } from "../hooks/useGetApi";
 
 export default function Card() {
-  
   const pokemons = useGetApi();
-  console.log("componente pokemon: ", pokemons)
+  console.log("componente pokemon: ", pokemons);
 
   return (
-    <div className="grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
-      {pokemons.length > 0 ? (
-        pokemons.map((pokemon) => (
+    <div className="mx-6 my-8">
+      <div className="text-center my-8">
+        <h1 className="text-5xl font-medium tracking-tight">Pokédex</h1>
+        <p className="text-sm text-gray-400 mt-1">
+          Selecciona un Pokémon para ver sus detalles
+        </p>
+      </div>
+
+      <div className="grid gap-3 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+        {pokemons.map((pokemon) => (
           <div
             key={pokemon.id}
-            className="rounded overflow-hidden shadow-lg bg-white"
+            className="bg-white border border-gray-200 rounded-xl overflow-hidden
+                   transition-all duration-150 hover:-translate-y-0.5 hover:border-gray-300"
           >
-            <img
-              className="w-full h-40 object-contain bg-slate-100"
-              src={pokemon.sprites.front_default}
-              alt={pokemon.name}
-            />
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2 capitalize">
-                {pokemon.name}
-              </div>
-              <p className="text-gray-700 text-base">
-                Tipo: {pokemon.types[0].type.name}
-              </p>
+            <div className="bg-gray-50 flex items-center justify-center p-5 mx-2 my-2">
+              <img
+                className="w-24 h-24 object-contain"
+                src={pokemon.sprites.front_default}
+                alt={pokemon.name}
+              />
+            </div>
+
+            <div className="flex justify-center text-center gap-1.5 px-4 py-3 border-t border-gray-100">
+              <span className="text-sm text-gray-400">{pokemon.id}.</span>
+              <h2 className="text-sm font-medium capitalize">{pokemon.name}</h2>
             </div>
           </div>
-        ))
-      ) : (
-        <div className="col-span-full text-center text-gray-600">
-          Cargando pokémons...
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 }

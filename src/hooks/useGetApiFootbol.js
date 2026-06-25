@@ -1,25 +1,39 @@
 import axios from "axios";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
+/* import { SpinnerContext } from "../context/SpinnerContext"; */
+import { useLoaderStore } from "../stores/useLoaderStore";
 
-export function useGetApiFootbol({ value }) {
+const API_KEY = "cfd19bc1c64934abdb0ca0a1570e953f";
+const URL = "/api/scripts/api/api.php";
+
+export function useGetApiFootbol(league) {
   const [teams, setTeams] = useState([]);
-  const [isLoadingData, setIsLoadingData] = useState(true);
-  const urlApi = `/api/scripts/api/api.php?key=cfd19bc1c64934abdb0ca0a1570e953f&tz=Europe/Madrid&format=json&req=teams&league=${value}`;
+  // const { toggleLoading } = useContext(SpinnerContext);
+  const { toggleLoading } = useLoaderStore();
 
   const getApi = useCallback(async () => {
+    toggleLoading(true);
     try {
-      const res = await axios.get(urlApi);
-      setTeams(res.data);
+      const res = await axios.get(URL, {
+        params: {
+          key: API_KEY,
+          tz: "Europe/Madrid",
+          format: "json",
+          req: "teams",
+          league: league
+        }
+      });
+      console.log(res.data.team);
+      setTeams(res.data.team);
     } catch (error) {
       console.error(error);
     } finally {
-      setIsLoadingData(false);
+      toggleLoading(false);
     }
-  }, [urlApi, value, isLoadingData]);
-
+  }), 
   useEffect(() => {
     getApi();
-  }, [getApi]);
+  }, [league]);
 
-  return { teams, isLoadingData };
+  return teams;
 }
