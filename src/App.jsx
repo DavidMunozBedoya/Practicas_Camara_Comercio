@@ -7,6 +7,7 @@ import CardFootbolAll from "./components/footbol/CardFootbolAll"; */
 import { LoaderContexProvider } from "./context/LoaderContext";
 import Loader from "./components/Loader";
 import Card from "./components/Card";
+import { Modal } from "./components/Modal";
 
 //context
 /* import { useState } from "react";
@@ -14,18 +15,18 @@ import { Mycontext } from "./context/MyContext";
 import MyComponent from "./components/MyComponent"; */
 
 function App() {
-  /*  const [league, setLeague] = useState(1);
+    /* const [league, setLeague] = useState(1);
   const changeLeague = (value) => setLeague(value);
-  const teams = useGetApiFootbol(league);
-
-  //context */
-  /* const  [ text, setText ] = useState("Pasando al contexto..."); */
+  const teams = useGetApiFootbol(league); */
 
   return (
-    <LoaderContexProvider>
-      <Loader />
-      <Card />
-    </LoaderContexProvider>
+    <div>
+      <LoaderContexProvider>
+        <Loader />
+        <Modal />
+        <Card />
+      </LoaderContexProvider>
+    </div>
    
     /* {<LoaderContexProvider>
       <Card />

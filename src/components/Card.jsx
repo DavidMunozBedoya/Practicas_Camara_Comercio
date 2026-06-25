@@ -1,19 +1,21 @@
+import { useModalStore } from "../stores/useModalStore"; 
 import { useGetApi } from "../hooks/useGetApi";
 
-export default function Card() {
-  const pokemons = useGetApi();
-  console.log("componente pokemon: ", pokemons);
+export default function Card(limit = 21) {
+  const { openModal } = useModalStore();
+  
+  const pokemons = useGetApi(limit);
 
   return (
-    <div className="mx-6 my-8">
-      <div className="text-center my-8">
+    <div className="mx-6 my-0">
+      <div className="text-center my-0">
         <h1 className="text-5xl font-medium tracking-tight">Pokédex</h1>
         <p className="text-sm text-gray-400 mt-1">
           Selecciona un Pokémon para ver sus detalles
         </p>
       </div>
 
-      <div className="grid gap-3 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-3 grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 hover:cursor-pointer" onClick={() => openModal(<h1>Prueba</h1>)}>
         {pokemons.map((pokemon) => (
           <div
             key={pokemon.id}

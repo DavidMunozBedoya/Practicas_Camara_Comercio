@@ -7,12 +7,12 @@ export const SpinnerContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   //manejador de estado
-  /* const toggleLoading = (value) => setIsLoading(value); */
+  const toggleLoading = (value) => setIsLoading(value);
 
   //otra forma: funcion que solo va a mutar el estado. de true a false
-  const toggleLoading = () => {
+ /*  const toggleLoading = () => {
     setIsLoading(!isLoading);
-  };
+  }; */
 
   return (
     <SpinnerContext.Provider value={{ isLoading, toggleLoading }}>

@@ -17,7 +17,7 @@ export const LoaderContexProvider = ({ children }) => {
 
   return (
     <LoaderContex.Provider value={{ isLoading, toggleLoading }}>
-      <Loader isLoading={isLoading} /> 
+      <Loader isLoading={isLoading} />
       {children}
     </LoaderContex.Provider>
   );
