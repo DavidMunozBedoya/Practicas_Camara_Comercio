@@ -16,11 +16,11 @@ export default function PokemonDetails({ pokemon }) {
         {pokemon.name}
       </h2>
       <div className="flex gap-3 flex-wrap justify-center">
-        <div className="flex items-center gap-1.5 text-blue-700 text-sm font-medium bg-blue-200 rounded-2xl border px-3 py-1.5">
+        <div className="flex items-center gap-1.5 text-blue-700 text-sm font-medium bg-blue-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
           <AiOutlineDingtalk />
           <span>{pokemon.abilities[0].ability.name}</span>
         </div>
-        <div className="flex items-center gap-1.5 text-orange-700 text-sm font-medium bg-orange-200 rounded-2xl border px-3 py-1.5">
+        <div className="flex items-center gap-1.5 text-orange-700 text-sm font-medium bg-orange-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
           <TbAlertTriangleFilled />
           <span>{pokemon.types[0].type.name}</span>
         </div>
