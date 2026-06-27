@@ -6,19 +6,19 @@ export const LoaderContext = createContext();
 
 //provider
 export const LoaderContextProvider = ({ children }) => {
-  //creo el estado
-  const [isLoading, setIsLoading] = useState(true);
+   //creo el estado
+   const [isLoading, setIsLoading] = useState(true);
 
-  //funcion para mutar el estado
+   //funcion para mutar el estado
 
-  const toggleLoading = (value) => {
-    setIsLoading(value);
-  };
+   const toggleLoading = (value) => {
+      setIsLoading(value);
+   };
 
-  return (
-    <LoaderContext.Provider value={{ isLoading, toggleLoading }}>
-      <Loader />
-      {children}
-    </LoaderContext.Provider>
-  );
+   return (
+      <LoaderContext.Provider value={{ isLoading, toggleLoading }}>
+         <Loader />
+         {children}
+      </LoaderContext.Provider>
+   );
 };
