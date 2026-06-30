@@ -1,10 +1,12 @@
-import { useState } from "react";
 import { useGetApi } from "../../hooks/useGetApi";
 import Card from "./CardPokemon";
+import { useModalStore } from "../../stores/useModalStore";
+import PokemonDetails from "./PokemonDetails";
 
 export const ContainerPokemons = () => {
-   const [limit, setLimit] = useState(36);
-   const pokemons = useGetApi(limit);
+   const pokemons = useGetApi("limit=200");
+   const { openModal } = useModalStore();
+
    return (
       <div className="">
          <div className="text-center my-8">
@@ -14,9 +16,15 @@ export const ContainerPokemons = () => {
             </p>
          </div>
 
-         <div className="grid gap-3 grid-cols-3 sm:grid-cols-3 lg:grid-cols-6">
-            {pokemons.map((pokemon) => <Card pokemon={pokemon} />)}
+         <div className="grid gap-3 grid-cols-3 sm:grid-cols-3 lg:grid-cols-5">
+            {pokemons.map((pokemon) => (
+               <Card
+                  key={pokemon?.id}
+                  pokemon={pokemon}
+                  action={() => openModal(<PokemonDetails pokemon={pokemon} />)}
+               />
+            ))}
          </div>
       </div>
-   )
-}
+   );
+};

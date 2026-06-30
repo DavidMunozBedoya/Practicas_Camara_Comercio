@@ -20,13 +20,11 @@ function App() {
     </div>
  */
     <div>
-      <>
         <Modal />        
         <LoaderContextProvider>
           <Loader />
           <ContainerPokemons />
         </LoaderContextProvider>
-      </>
     </div>
 
     /* {<LoaderContexProvider>
