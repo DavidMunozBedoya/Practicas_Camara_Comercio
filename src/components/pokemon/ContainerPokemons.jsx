@@ -1,10 +1,10 @@
-import { useGetApi } from "../../hooks/useGetApi";
 import Card from "./CardPokemon";
 import { useModalStore } from "../../stores/useModalStore";
 import PokemonDetails from "./PokemonDetails";
+import { useGetApi } from "../../hooks/useGetApi";
 
 export const ContainerPokemons = () => {
-   const pokemons = useGetApi("limit=200");
+   const pokemons = useGetApi("limit=100");
    const { openModal } = useModalStore();
 
    return (
@@ -16,7 +16,7 @@ export const ContainerPokemons = () => {
             </p>
          </div>
 
-         <div className="grid gap-3 grid-cols-3 sm:grid-cols-3 lg:grid-cols-5">
+         <div className="grid gap-3 grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 px-5 py-5">
             {pokemons.map((pokemon) => (
                <Card
                   key={pokemon?.id}
