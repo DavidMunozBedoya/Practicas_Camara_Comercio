@@ -2,8 +2,8 @@ export default function CardPokemon({ pokemon, action }) {
 
    return (
       <div
-         className="bg-white border border-gray-200 rounded-xl overflow-hidden
-              transition-all duration-150 hover:-translate-y-0.5 hover:border-gray-300 hover:cursor-pointer"
+         className="bg-white border border-gray-400 rounded-xl overflow-hidden
+              transition-all duration-150 hover:-translate-y-0.5 hover:border-gray-500 hover:cursor-pointer"
          onClick={action}
       >
          <div className="bg-gray-50 flex items-center justify-center p-5 mx-2 my-2">

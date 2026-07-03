@@ -1,25 +1,22 @@
 import axios from 'axios';
-import { useLoaderStore } from '../stores/useLoaderStore';
 
-export const useAxios = (URL = 'https://pokeapi.co/api/v2/pokemon?') => {
-
-   const { toggleLoading } = useLoaderStore();
+export const useAxios = (baseURL = 'https://pokeapi.co/api/v2/pokemon') => {
 
    const get = async (params) => {
-      console.log(params);
-      toggleLoading(true);
+      console.log('llamada a axios')
+
       try {
-         const response = await axios.get(`${URL}/${params}`, {
+         const response = await axios.get(baseURL, {
+            params,
             headers: {
                "Content-Type": "application/json"
-            }
+            },
          });
-
+         /* console.log('respuesta axios: ', response.data); */
          return response.data;
+
       } catch (error) {
          console.log(error);
-      } finally {
-         toggleLoading(false);
       }
    }
 
