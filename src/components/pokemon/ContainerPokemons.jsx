@@ -26,12 +26,8 @@ export const ContainerPokemons = () => {
             ))}
          </div>
          <Pagination currentPage={page} totalPages={totalPages}>
-            {page < totalPages && (
-               <Button action={clickNextPage} icon={<IconNext />} className="fixed top-1/2 right-1 transform -translate-y-1/2 text-gray-500" />
-            )}
-            {page > 1 && (
-               <Button action={clickPrevPage} icon={<IconBack />} className="fixed top-1/2 left-1 transform -translate-y-1/2 text-gray-500" />
-            )}
+            <Button action={clickNextPage} icon={<IconNext />} className={`${page == totalPages ? 'hidden' : 'fixed top-1/2 right-1 transform -translate-y-1/2 text-gray-500'}`} />
+            <Button action={clickPrevPage} icon={<IconBack />} className={`${page == 1 ? 'hidden' : 'fixed top-1/2 left-1 transform -translate-y-1/2 text-gray-500'}`} />
          </Pagination>
       </div>
    );
