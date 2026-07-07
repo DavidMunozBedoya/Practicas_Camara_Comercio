@@ -19,19 +19,19 @@ export default function PokemonDetails({ pokemon }) {
          <div className="flex gap-3 flex-wrap justify-center">
             <div className="flex items-center gap-1.5 text-blue-700 text-sm font-medium bg-blue-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
                <AiOutlineDingtalk />
-               <span>{pokemon.abilities[0].ability.name}</span>
+               <span>{pokemon.abilities[0]?.ability?.name || 'N/A'} </span>
             </div>
             <div className="flex items-center gap-1.5 text-blue-700 text-sm font-medium bg-blue-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
                <AiOutlineDingtalk />
-               <span>{pokemon.abilities[1]?.ability.name}</span>
+               <span>{pokemon.abilities[1]?.ability?.name || 'N/A'}</span>
             </div>
             <div className="flex items-center gap-1.5 text-green-700 text-sm font-medium bg-green-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
                <TbHandMove />
-               <span>{pokemon.moves[0].move.name}</span>
+               <span>{pokemon.moves[0]?.move?.name || 'N/A'}</span>
             </div>
             <div className="flex items-center gap-1.5 text-orange-700 text-sm font-medium bg-orange-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
                <TbAlertTriangleFilled />
-               <span>{pokemon.types[0].type.name}</span>
+               <span>{pokemon.types[0]?.type?.name || 'N/A'}</span>
             </div>
 
          </div>
