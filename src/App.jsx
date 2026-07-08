@@ -32,14 +32,6 @@ function App() {
                </LoaderContextProvider>
             </div>
          </Route>
-
-         <Route path='/futbol'>
-            <InputFootbol />
-            
-         </Route>
-
-
-
       </Router>
 
 
