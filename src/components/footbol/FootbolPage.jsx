@@ -1,6 +1,7 @@
 import { useGetApiFootbol } from "../../hooks/useGetApiFootbol"
 import CardFootbol from "./CardFootbol";
 import { useFootbolLeagueStore } from "../../stores/useFootbolLeagueStore";
+import InputFootbol from "./InputFootbol";
 
 export default function ContainerFootbol() {
    const { league } = useFootbolLeagueStore();
@@ -8,6 +9,9 @@ export default function ContainerFootbol() {
 
    return (
       <div>
+         <div>
+            <InputFootbol />
+         </div>
          <div className="text-center my-8">
             <h1 className="text-5xl font-medium tracking-tight">Clubes de Fútbol</h1>
          </div>

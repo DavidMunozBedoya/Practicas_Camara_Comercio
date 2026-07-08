@@ -1,5 +1,4 @@
-import ContainerFootbol from "./components/footbol/ContainerFootbol";
-import InputFootbol from "./components/footbol/InputFootbol";
+import ContainerFootbol from "./components/footbol/FootbolPage";
 import Spinner from "./components/Spinner";
 
 /* import { LoaderContextProvider } from "./context/LoaderContext";
@@ -12,7 +11,6 @@ function App() {
 
       <div>
          <Spinner />
-         <InputFootbol />
          <ContainerFootbol />
       </div>
 
