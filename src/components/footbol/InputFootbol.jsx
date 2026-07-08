@@ -5,12 +5,6 @@ export default function InputFootbol() {
 
    return (
       <div className="flex flex-col gap-1.5 max-w-xs m-3">
-         <label
-            htmlFor="league-select-min"
-            className="text-blue-900 text-xs font-bold uppercase tracking-wider pl-1"
-         >
-            Competición Europa
-         </label>
          <div className="relative">
             <select
                id="league-select-min"

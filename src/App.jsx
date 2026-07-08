@@ -1,21 +1,16 @@
-import ContainerFootbol from "./components/footbol/FootbolPage";
-import Spinner from "./components/Spinner";
-
-/* import { LoaderContextProvider } from "./context/LoaderContext";
 import { Modal } from "./components/Modal";
 import Loader from "./components/Loader";
- */
+import { AppRouter } from "./routes/AppRouter";
+
 function App() {
 
    return (
-
       <div>
-         <Spinner />
-         <ContainerFootbol />
+         <Modal />
+         <Loader />
+         <AppRouter />
       </div>
-
    );
-
 }
 
 export default App;

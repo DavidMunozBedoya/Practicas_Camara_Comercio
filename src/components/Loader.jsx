@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { LoaderContext } from "../context/LoaderContext";
+import { useLoaderStore } from "../stores/useLoaderStore";
 
 export default function Loader() {
 
-   const { isLoading } = useContext(LoaderContext);
+   const { isLoading } = useLoaderStore();
    if (!isLoading) return;
 
    return (
