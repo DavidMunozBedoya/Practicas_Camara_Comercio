@@ -33,7 +33,6 @@ export default function PokemonDetails({ pokemon }) {
                <TbAlertTriangleFilled />
                <span>{pokemon.types[0]?.type?.name || 'N/A'}</span>
             </div>
-
          </div>
       </div>
    );

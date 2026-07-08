@@ -10,9 +10,8 @@ import { IconBack, IconNext } from "../../assets/icons/tablerIcons";
 export const ContainerPokemons = () => {
 
    const { allPokemons, totalPages } = useGetApi();
-   const { clickNextPage, clickPrevPage, page, startIndex, endIndex } = useControlPagination(totalPages);
+   const { clickNextPage, clickPrevPage, page, pokemonXSection } = useControlPagination(allPokemons);
    const { openModal } = useModalStore();
-   const pokemonXSection = allPokemons.slice(startIndex, endIndex);
 
    return (
       <div>
@@ -26,9 +25,13 @@ export const ContainerPokemons = () => {
             ))}
          </div>
          <Pagination currentPage={page} totalPages={totalPages}>
-            <Button action={clickNextPage} icon={<IconNext />} className={`${page == totalPages ? 'hidden' : 'fixed top-1/2 right-1 transform -translate-y-1/2 text-gray-500'}`} />
-            <Button action={clickPrevPage} icon={<IconBack />} className={`${page == 1 ? 'hidden' : 'fixed top-1/2 left-1 transform -translate-y-1/2 text-gray-500'}`} />
+            <Button action={() => clickNextPage(totalPages)}
+               icon={<IconNext />}
+               className={`${page == totalPages ? 'hidden' : 'fixed top-1/2 right-1 transform -translate-y-1/2 text-gray-500'}`} />
+            <Button action={clickPrevPage}
+               icon={<IconBack />}
+               className={`${page == 1 ? 'hidden' : 'fixed top-1/2 left-1 transform -translate-y-1/2 text-gray-500'}`} />
          </Pagination>
       </div>
    );
-};
+}

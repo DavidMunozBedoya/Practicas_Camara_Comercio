@@ -14,7 +14,6 @@ export function useGetApi() {
    const { toggleLoading } = useContext(LoaderContext);
 
    const getApi = useCallback(async () => {
-
       toggleLoading(true);
       try {
          const response = await get({ limit: 1350 });

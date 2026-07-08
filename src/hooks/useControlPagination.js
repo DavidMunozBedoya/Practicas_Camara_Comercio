@@ -1,37 +1,28 @@
-import { useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
-export default function useControlPagination(totalPages) {
+const LIMIT = 21;
+
+export default function useControlPagination(allPokemons) {
 
    const [page, setPage] = useState(1);
-   const [startIndex, setStartIndex] = useState(0);
-   const [endIndex, setEndIndex] = useState(21);
+   const currentIndex = useRef(0);
 
-   const clickNextPage = () => {
-
+   const clickNextPage = (totalPages) => {
       if (page >= totalPages) return;
       setPage(page + 1);
-      setStartIndex(startIndex + 21)
-      setEndIndex(endIndex + 21)
-
-      window.scrollTo({
-         top: 0,
-         behavior: "smooth"
-      });
-
+      currentIndex.current += LIMIT;
    }
 
    const clickPrevPage = () => {
-
       if (page <= 1) return;
       setPage(page - 1);
-      setStartIndex(startIndex - 21);
-      setEndIndex(endIndex - 21);
-      
-      window.scrollTo({
-         top: 0,
-         behavior: "smooth"
-      });
-
+      currentIndex.current -= LIMIT;
    }
-   return { clickNextPage, clickPrevPage, page, startIndex, endIndex }
+
+   const pokemonXSection = useMemo(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return allPokemons.slice(currentIndex.current, (currentIndex.current + LIMIT));
+   }, [allPokemons, currentIndex.current]);
+
+   return { clickNextPage, clickPrevPage, page, pokemonXSection }
 }
