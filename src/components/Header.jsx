@@ -1,13 +1,25 @@
-export default function Header() {
-   return (
-      <header className="fixed top-0 left-0 w-full z-50 bg-white py-5">
-         <div className="text-center">
-            <h1 className="text-5xl font-medium tracking-tight">Pokédex</h1>
-            <p className="text-sm text-gray-400 mt-1">
-               Selecciona un Pokémon para ver sus detalles
-            </p>
-         </div>
-      </header>
+import { Link, useLocation } from "wouter";
 
+export default function Header({ children }) {
+
+   const [location] = useLocation();
+
+   return (
+      <div>
+         <header className="fixed top-0 left-0 w-full z-10 bg-white py-5">
+            <nav className="flex justify-center top-0 gap-3 my-2.5">
+               <Link href="/pokemon">
+                  <span>Pokémon</span>
+                  {location.includes("/pokemon") && <div className="bg-blue-500 w-full h-1" />}
+               </Link>
+               <Link href="/futbol">
+                  <span>Fútbol</span>
+                  {location.includes("/futbol") && <div className="bg-blue-500 w-full h-1" />}
+               </Link>
+            </nav>
+         </header>
+
+         {children}
+      </div>
    )
 }

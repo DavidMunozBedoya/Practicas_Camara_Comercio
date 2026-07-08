@@ -1,8 +1,6 @@
 import { useAxios } from './useAxios';
 import axios from 'axios';
 import { useState, useEffect, useCallback } from "react";
-import { LoaderContext } from '../context/LoaderContext';
-import { useContext } from 'react';
 
 const limitPokemons = 21;
 
@@ -11,10 +9,9 @@ export function useGetApi() {
    const [allPokemons, setAllPokemons] = useState([]);
    const [totalPages, setTotalPages] = useState(0);
    const { get } = useAxios();
-   const { toggleLoading } = useContext(LoaderContext);
-
+   
    const getApi = useCallback(async () => {
-      toggleLoading(true);
+
       try {
          const response = await get({ limit: 1350 });
 
@@ -27,9 +24,7 @@ export function useGetApi() {
 
       } catch (error) {
          console.log(error);
-      } finally {
-         toggleLoading(false);
-      };
+      }
    }, []);
 
    useEffect(() => {

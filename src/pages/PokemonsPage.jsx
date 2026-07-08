@@ -1,21 +1,27 @@
-import Card from "./Card";
-import PokemonDetails from "./PokemonDetails";
-import { Pagination } from "../Pagination";
-import { Button } from "../Button";
-import { useGetApi } from "../../hooks/useGetApi";
-import useControlPagination from "../../hooks/useControlPagination";
-import { useModalStore } from "../../stores/useModalStore";
-import { IconBack, IconNext } from "../../assets/icons/tablerIcons";
+import Card from "../components/pokemon/Card";
+import PokemonDetails from "../components/pokemon/PokemonDetails";
+import { Pagination } from "../components/Pagination";
+import { Button } from "../components/Button";
+import { useGetApi } from "../hooks/useGetApi";
+import useControlPagination from "../hooks/useControlPagination";
+import { useModalStore } from "../stores/useModalStore";
+import { IconBack, IconNext } from "../assets/icons/tablerIcons";
 
-export const ContainerPokemons = () => {
+export const PokemonsPage = () => {
 
    const { allPokemons, totalPages } = useGetApi();
    const { clickNextPage, clickPrevPage, page, pokemonXSection } = useControlPagination(allPokemons);
    const { openModal } = useModalStore();
 
    return (
-      <div>
-         <div className="grid gap-3 grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 px-5 py-5">
+      <div className="pt-24">
+         <div className="text-center">
+            <h1 className="text-5xl font-medium tracking-tight">Pokédex</h1>
+            <p className="text-sm text-gray-400 mt-1">
+               Selecciona un Pokémon para ver sus detalles
+            </p>
+         </div>
+         <div className="grid gap-3 grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 p-20">
             {pokemonXSection.map((pokemon) => (
                <Card
                   key={pokemon?.id}
