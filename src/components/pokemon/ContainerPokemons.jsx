@@ -6,7 +6,7 @@ export const ContainerPokemons = () => {
    const [limit, setLimit] = useState(36);
    const pokemons = useGetApi(limit);
    return (
-      <div className="">
+      <div>
          <div className="text-center my-8">
             <h1 className="text-5xl font-medium tracking-tight">Pokédex</h1>
             <p className="text-sm text-gray-400 mt-1">

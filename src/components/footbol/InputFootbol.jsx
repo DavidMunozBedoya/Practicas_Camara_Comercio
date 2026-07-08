@@ -1,11 +1,15 @@
-export default function InputFootbol({ league, changeLeague }) {
+import { useFootbolLeagueStore } from "../../stores/useFootbolLeagueStore";
+
+export default function InputFootbol() {
+   const { league, changeLeague } = useFootbolLeagueStore();
+
    return (
       <div className="flex flex-col gap-1.5 max-w-xs m-3">
          <label
             htmlFor="league-select-min"
             className="text-blue-900 text-xs font-bold uppercase tracking-wider pl-1"
          >
-            Competición
+            Competición Europa
          </label>
          <div className="relative">
             <select
