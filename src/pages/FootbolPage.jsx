@@ -11,7 +11,7 @@ export default function FootbolPage() {
       <div className="pt-24">
          <InputFootbol />
          <div className="text-center">
-            <h1 className="text-5xl font-medium tracking-tight">Clubes de Fútbol España</h1>
+            <h1 className="text-5xl font-medium tracking-tight">Clubes de Fútbol España Liga {league}</h1>
          </div>
          <div className="min-h-screen">
             <div className="grid gap-3 p-20 grid-cols-2 lg:grid-cols-3 mx-auto">

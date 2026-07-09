@@ -5,10 +5,10 @@ import { TbHandMove } from "react-icons/tb";
 export default function PokemonDetails({ pokemon }) {
 
    return (
-      <div className="flex flex-col items-center gap-4 p-6 relative">
-         <div className="w-30 h-30 rounded-full border border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden">
+      <div className="flex flex-col items-center gap-4 p-12 relative">
+         <div className="w-30 h-30 flex items-center justify-center overflow-hidden animate-bounce">
             <img
-               className="w-25 h-25"
+               className="w-35 h-35"
                src={pokemon.sprites.front_default}
                alt={pokemon.name}
             />

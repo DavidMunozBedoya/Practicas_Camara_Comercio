@@ -6,7 +6,7 @@ export default function CardFootbol({ team }) {
       >
          <div className="flex justify-center items-center p-5 mx-2 my-2">
             <img
-               className="w-24 h-24 object-contain m-3"
+               className="w-24 h-24 object-contain m-3 "
                src={team.shield_png}
             />
          </div>

@@ -1,6 +1,6 @@
 import Card from "../components/pokemon/Card";
 import PokemonDetails from "../components/pokemon/PokemonDetails";
-import { Pagination } from "../components/Pagination";
+import { Pagination } from "./Pagination";
 import { Button } from "../components/Button";
 import { useGetApi } from "../hooks/useGetApi";
 import useControlPagination from "../hooks/useControlPagination";
@@ -12,7 +12,7 @@ export const PokemonsPage = () => {
    const { allPokemons, totalPages } = useGetApi();
    const { clickNextPage, clickPrevPage, page, pokemonXSection } = useControlPagination(allPokemons);
    const { openModal } = useModalStore();
-  
+
    return (
       <div className="pt-24">
          <div className="text-center">
