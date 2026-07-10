@@ -1,11 +1,11 @@
 import Card from "../components/pokemon/Card";
 import PokemonDetails from "../components/pokemon/PokemonDetails";
-import { Pagination } from "./Pagination";
 import { Button } from "../components/Button";
 import { useGetApi } from "../hooks/useGetApi";
 import useControlPagination from "../hooks/useControlPagination";
 import { useModalStore } from "../stores/useModalStore";
 import { IconBack, IconNext } from "../assets/icons/tablerIcons";
+import { Pagination } from "../components/Pagination";
 
 export const PokemonsPage = () => {
 
