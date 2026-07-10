@@ -1,8 +1,17 @@
+import { useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { ButtonSpan } from "./ButtonSpan";
+import { IconLogout } from "../assets/icons/tablerIcons";
+import { useAuthStore } from "../stores/useAuthStore";
 
 export default function Header({ children }) {
 
-   const [location] = useLocation();
+   const { toggleAuth } = useAuthStore();
+   const [location, navigate] = useLocation();
+
+   useEffect(() => {
+      navigate("/pokemon");
+   }, []);
 
    return (
       <div>
@@ -17,6 +26,9 @@ export default function Header({ children }) {
                   <span>Fútbol</span>
                   {location.includes("/futbol") && <div className="bg-blue-600 w-full h-1 animate-pulse" />}
                </Link>
+               <div className="fixed right-6">
+                  <ButtonSpan action={() => toggleAuth(false)} className={'hover:cursor-pointer text-[#080722]'} icon={<IconLogout />} />
+               </div>
             </nav>
          </header>
 

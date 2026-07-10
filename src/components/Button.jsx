@@ -1,10 +1,11 @@
-export const Button = ({ action = () => null, icon = <></>, className = "" }) => {
+export const Button = ({ action = () => null, className = "", text = "", type="" }) => {
+
    return (
-      <span
+      <button
+         type={type}
          className={className}
          onClick={action}
-      >
-         {icon}
-      </span>
+      >{text}
+      </button>
    )
 }

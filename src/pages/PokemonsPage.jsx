@@ -1,6 +1,6 @@
 import Card from "../components/pokemon/Card";
 import PokemonDetails from "../components/pokemon/PokemonDetails";
-import { Button } from "../components/Button";
+import { ButtonSpan } from "../components/ButtonSpan";
 import { useGetApi } from "../hooks/useGetApi";
 import useControlPagination from "../hooks/useControlPagination";
 import { useModalStore } from "../stores/useModalStore";
@@ -28,10 +28,10 @@ export const PokemonsPage = () => {
             ))}
          </div>
          <Pagination currentPage={page} totalPages={totalPages}>
-            <Button action={() => clickNextPage(totalPages)}
+            <ButtonSpan action={() => clickNextPage(totalPages)}
                icon={<IconNext />}
                className={`${page == totalPages ? 'hidden' : 'fixed top-1/2 right-1 transform -translate-y-1/2 text-gray-500'}`} />
-            <Button action={clickPrevPage}
+            <ButtonSpan action={clickPrevPage}
                icon={<IconBack />}
                className={`${page == 1 ? 'hidden' : 'fixed top-1/2 left-1 transform -translate-y-1/2 text-gray-500'}`} />
          </Pagination>

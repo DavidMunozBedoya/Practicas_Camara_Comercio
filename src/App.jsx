@@ -7,7 +7,7 @@ function App() {
    return (
       <div>
          <Modal />
-         { <Loader />}
+         <Loader />
          <AppRouter />
       </div>
    );
