@@ -31,7 +31,6 @@ export default function Header({ children }) {
                </div>
             </nav>
          </header>
-
          {children}
       </div>
    )

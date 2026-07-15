@@ -11,6 +11,7 @@ import NewUserForm from '../components/NewUserForm'
 
 export const AppRouter = () => {
    const { isAuth } = useAuthStore();
+
    return (
       <Switch>
          <Route path="/" children={<PublicRoutes auth={isAuth}><LoginPage /></PublicRoutes>} />
@@ -24,7 +25,6 @@ export const AppRouter = () => {
                </Header>
             </PrivateRoutes>
          </Route>
-
          <Route path="/404" children={<NotFound />} />
          <Redirect to="/404" replace />
       </Switch>

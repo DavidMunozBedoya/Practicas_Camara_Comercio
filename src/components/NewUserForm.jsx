@@ -1,3 +1,4 @@
+import { IconX } from "../assets/icons/tablerIcons";
 import { Button } from "./Button";
 import FormInput from "./FormInput";
 
@@ -12,6 +13,7 @@ export default function NewUserForm() {
       <form onSubmit={handleSubmit} className="flex justify-center items-center h-screen bg-linear-to-br from-[#080722] via-[#161434] to-[#0c0066]">
          <div className="flex flex-col items-center justify-center px-6 md:px-8 py-8 mx-auto lg:py-0">
             <div className="w-full bg-white rounded-lg">
+               <span className="flex justify-end m-2"><IconX /></span>
                <div className="space-y-5 md:space-y-4 sm:p-8 m-7">
                   <p className="text-2xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl pb-4">
                      Nuevo Usuario
