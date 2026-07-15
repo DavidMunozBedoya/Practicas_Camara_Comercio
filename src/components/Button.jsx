@@ -1,4 +1,4 @@
-export const Button = ({ action = () => null, className = "", text = "", type="" }) => {
+export const Button = ({ action = () => null, className = "", text = "", type = ""}) => {
 
    return (
       <button

@@ -7,14 +7,14 @@ import { PublicRoutes } from './PublicRoutes'
 import { PrivateRoutes } from './PrivateRoutes'
 import { NotFound } from '../components/NotFound'
 import { useAuthStore } from '../stores/useAuthStore'
+import NewUserForm from '../components/NewUserForm'
 
 export const AppRouter = () => {
    const { isAuth } = useAuthStore();
-
    return (
       <Switch>
          <Route path="/" children={<PublicRoutes auth={isAuth}><LoginPage /></PublicRoutes>} />
-         <Route path="/nuevo-usuario" children={<PublicRoutes auth={isAuth}><h1>Formulario nuevo user</h1></PublicRoutes>} />
+         <Route path="/nuevo-usuario" children={<PublicRoutes auth={isAuth}><NewUserForm /></PublicRoutes>} />
 
          <Route path="/home" nest>
             <PrivateRoutes auth={isAuth}>
