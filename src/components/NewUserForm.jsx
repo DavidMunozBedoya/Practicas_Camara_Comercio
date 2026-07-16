@@ -1,60 +1,83 @@
 import { IconX } from "../assets/icons/tablerIcons";
 import { Button } from "./Button";
+import { ButtonSpan } from "./ButtonSpan";
 import FormInput from "./FormInput";
+import { useForm } from "react-hook-form";
+import { userLoginSchema } from "../schemas/loginSchema";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useLocation } from "wouter";
 
 export default function NewUserForm() {
 
-   const handleSubmit = (e) => {
-      e.preventDefault();
-      console.log("submit")
-   }
+   const {
+      register,
+      handleSubmit,
+      formState: { errors, isValid }
+   } = useForm({
+      mode: "onBlur",
+      resolver: yupResolver(userLoginSchema),
+   });
+
+   const [, setlocation] = useLocation();
+   const onSubmit = handleSubmit((data) => {
+      console.log("cuenta creada exitosamente", data);
+   });
 
    return (
-      <form onSubmit={handleSubmit} className="flex justify-center items-center h-screen bg-linear-to-br from-[#080722] via-[#161434] to-[#0c0066]">
-         <div className="flex flex-col items-center justify-center px-6 md:px-8 py-8 mx-auto lg:py-0">
-            <div className="w-full bg-white rounded-lg">
-               <span className="flex justify-end m-2"><IconX /></span>
+      <form onSubmit={onSubmit} className="flex justify-center items-center h-screen bg-linear-to-br from-[#080722] via-[#161434] to-[#0c0066]">
+         <div className="flex flex-col  items-center justify-center px-6 md:px-8 py-8 mx-auto lg:py-0">
+            <div className="relative w-full bg-white rounded-lg">
+               <ButtonSpan className={'absolute top-3 right-3 hover:cursor-pointer'} action={() => { setlocation("/") }} icon={<IconX />} />
                <div className="space-y-5 md:space-y-4 sm:p-8 m-7">
                   <p className="text-2xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl pb-4">
                      Nuevo Usuario
                   </p>
-                  <FormInput
-                     label="Correo"
-                     type="email"
-                     name="email"
-                     placeholder="ejemplo@correo.com"
-                     id="username"
-                     required={true}
-                  />
-                  <div>
+                  <div className="grid grid-cols-2 gap-2">
                      <FormInput
-                        label="Contraseña"
+                        label="Nombres*"
+                        type="name"
+                        name="name"
+                        placeholder="Juan Carlos"
+                        id="name"
+                        error={errors.name}
+                        {...register("name")}
+                     />
+                     <FormInput
+                        label="Correo*"
+                        type="email"
+                        name="email"
+                        placeholder="ejemplo@correo.com"
+                        id="email"
+                        error={errors.email}
+                        {...register("email")}
+                     />
+                     <FormInput
+                        label="Contraseña*"
                         type="password"
                         name="password"
                         placeholder="••••••••"
                         id="password"
-                        required={true}
+                        error={errors.password}
+                        {...register("password")}
                      />
-                  </div>
-                  <div>
                      <FormInput
-                        label="Confirma tu Contraseña"
+                        label="Confirma tu Contraseña*"
                         type="password"
-                        name="confirmPassword"
+                        name="passwordConfirm"
                         placeholder="••••••••"
-                        id="confirmPassword"
-                        required={true}
+                        id="passwordConfirm"
+                        error={errors.passwordConfirm}
+                        {...register("passwordConfirm")}
                      />
                   </div>
                   <Button
+                     disabled={!isValid}
                      type="submit"
                      text="Crear Cuenta"
-                     className={'bg-[#0c0066] text-white font-bold p-2 w-2xs rounded-lg cursor-pointer hover:bg-blue-700 >'}
                   />
                </div>
             </div>
          </div>
-      </form>
-
+      </form >
    )
 }

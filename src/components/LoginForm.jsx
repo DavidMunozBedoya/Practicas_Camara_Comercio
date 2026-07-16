@@ -3,56 +3,61 @@ import FormInput from "./FormInput";
 import { useForm } from "react-hook-form";
 import { useAuthStore } from "../stores/useAuthStore";
 import { toast } from "react-hot-toast";
-
+import { yupResolver } from "@hookform/resolvers/yup";
+import { userLoginSchema } from "../schemas/loginSchema";
+import Checkbox from "./Checkbox";
 
 export default function ReactHookForm() {
-   const { register, handleSubmit } = useForm();
+   const {
+      register,
+      handleSubmit,
+      formState: { errors, isValid }
+   } = useForm({
+      mode: "onBlur",
+      resolver: yupResolver(userLoginSchema)
+   });
+
    const { toggleAuth } = useAuthStore();
 
    const onSubmit = handleSubmit((data) => {
       toggleAuth(true);
-      toast.success(`Bienvenido! ${data.email}`)
+      toast.success(`Bienvenido! ${data.email}`);
       console.log(data);
    });
 
    return (
-      <form onSubmit={onSubmit} className="space-y-5">
+      <form onSubmit={onSubmit} className="space-y-4">
          <h1 className="text-2xl font-bold text-center">Bienvenido!</h1>
          <FormInput
-            label="Correo:"
+            label="Correo *"
             type="email"
             placeholder="email@test.com"
             name="email"
             id="email"
-            required={true}
+            error={errors.email}
             {...register("email")}
          />
          <FormInput
-            label="Contraseña:"
+            label="Contraseña*"
             type="password"
             placeholder="**********"
             name="password"
             id="password"
-            required={true}
+            error={errors.password}
             {...register("password")}
          />
-         <div className="space-x-1">
-            <input
-               type="checkbox"
-               name="terminos"
-               id="terminos"
-               {...register("terminos")} />
-            <span className="text-red-600">
-               Terminos y condiciones
-            </span>
-         </div>
-         <div className="flex justify-center my-3">
-            <Button
-               type="submit"
-               className={'bg-[#0c0066] text-white font-bold p-2 w-2xs rounded-lg cursor-pointer hover:bg-blue-700 >'}
-               text="Iniciar Sesión"
-            />
-         </div>
+         <Checkbox
+            label="Terminos y Condiciones*"
+            name="terms"
+            id="terms"
+            error={errors.terms}
+            {...register("terms")}
+         />
+         <Button
+            disabled={!isValid}
+            text="Iniciar Sesión"
+            className="flex justify-center mt-3"
+         />
       </form>
    )
 }
