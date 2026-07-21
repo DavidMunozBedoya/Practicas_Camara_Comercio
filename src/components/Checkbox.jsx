@@ -1,6 +1,6 @@
 export default function Checkbox({ id = "", label = "", name = "", type = "checkbox", error = null, ...rest }) {
    return (
-      <div className="flex space-x-1 text-xs">
+      <div className="flex justify-start items-center space-x-1 text-xs">
          <input
             type={type}
             name={name}

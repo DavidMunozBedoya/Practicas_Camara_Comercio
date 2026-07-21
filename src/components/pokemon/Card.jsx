@@ -10,7 +10,7 @@ export default function Card({ pokemon, action }) {
       >
          <div className="bg-gray-50 flex items-center justify-center p-5 mx-2 my-2">
             <img
-               className="w-24 h-24 object-contain"
+               className="w-29 h-29 object-contain"
                src={front_default}
                alt={name}
             />

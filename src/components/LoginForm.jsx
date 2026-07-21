@@ -5,7 +5,6 @@ import { useAuthStore } from "../stores/useAuthStore";
 import { toast } from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { userLoginSchema } from "../schemas/loginSchema";
-import Checkbox from "./Checkbox";
 
 export default function ReactHookForm() {
    const {
@@ -13,7 +12,7 @@ export default function ReactHookForm() {
       handleSubmit,
       formState: { errors, isValid }
    } = useForm({
-      mode: "onBlur",
+      mode: "all",
       resolver: yupResolver(userLoginSchema)
    });
 
@@ -45,13 +44,6 @@ export default function ReactHookForm() {
             id="password"
             error={errors.password}
             {...register("password")}
-         />
-         <Checkbox
-            label="Terminos y Condiciones*"
-            name="terms"
-            id="terms"
-            error={errors.terms}
-            {...register("terms")}
          />
          <Button
             disabled={!isValid}

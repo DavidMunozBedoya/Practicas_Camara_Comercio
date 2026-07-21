@@ -4,7 +4,7 @@ export default function InputFootbol() {
    const { league, changeLeague } = useFootbolLeagueStore();
 
    return (
-      <div className="flex flex-col gap-1.5 max-w-xs m-3">
+      <div className="flex flex-col justify-center items-center md:justify-center md:items-start gap-1.5 m-3">
          <div className="relative">
             <select
                id="league-select-min"

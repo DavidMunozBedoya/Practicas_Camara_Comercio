@@ -16,14 +16,10 @@ export default function PokemonDetails({ pokemon }) {
          <h2 className="text-gray-800 text-2xl font-medium capitalize">
             {pokemon.name}
          </h2>
-         <div className="flex gap-3 flex-wrap justify-center">
+         <div className="flex flex-wrap gap-3 grid-cols-1 md:grid-cols-3 justify-center">
             <div className="flex items-center gap-1.5 text-blue-700 text-sm font-medium bg-blue-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
                <AiOutlineDingtalk />
                <span>{pokemon.abilities[0]?.ability?.name || 'N/A'} </span>
-            </div>
-            <div className="flex items-center gap-1.5 text-blue-700 text-sm font-medium bg-blue-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
-               <AiOutlineDingtalk />
-               <span>{pokemon.abilities[1]?.ability?.name || 'N/A'}</span>
             </div>
             <div className="flex items-center gap-1.5 text-green-700 text-sm font-medium bg-green-200 rounded-2xl border px-3 py-1.5 hover:-translate-y-0.5">
                <TbHandMove />

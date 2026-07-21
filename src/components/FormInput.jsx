@@ -6,7 +6,7 @@ export default function FormInput({ label="", id = "", type = "", placeholder = 
             type={type}
             id={id}
             placeholder={placeholder}
-            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 w-70"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg p-2 w-full"
             autoComplete={id}
             {...rest}
          />

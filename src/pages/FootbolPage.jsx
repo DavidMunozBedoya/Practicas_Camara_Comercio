@@ -14,7 +14,7 @@ export default function FootbolPage() {
             <h1 className="text-5xl font-medium tracking-tight">Clubes de Fútbol España Liga {league}</h1>
          </div>
          <div className="min-h-screen">
-            <div className="grid gap-3 p-20 grid-cols-2 lg:grid-cols-3 mx-auto">
+            <div className="grid gap-3 p-20 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 mx-auto">
                {teams.map((team) => <CardFootbol key={team.id} team={team} />)}
             </div>
          </div>

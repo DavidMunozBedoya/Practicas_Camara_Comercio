@@ -18,7 +18,7 @@ export const PokemonsPage = () => {
          <div className="text-center">
             <h1 className="text-5xl font-medium tracking-tight">Pokédex</h1>
          </div>
-         <div className="grid gap-3 grid-cols-2 lg:grid-cols-3 p-20">
+         <div className="grid gap-3 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 p-20">
             {pokemonXSection.map((pokemon) => (
                <Card
                   key={pokemon?.id}
