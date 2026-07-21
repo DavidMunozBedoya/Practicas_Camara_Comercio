@@ -3,7 +3,7 @@ import { useGetApi } from "../../hooks/useGetApi";
 import Card from "./CardPokemon";
 
 export const ContainerPokemons = () => {
-   const [limit, setLimit] = useState(36);
+   const [limit, setLimit] = useState(35);
    const pokemons = useGetApi(limit);
    return (
       <div>

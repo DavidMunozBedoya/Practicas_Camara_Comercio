@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useLoaderStore } from '../stores/useLoaderStore';
 import { useState, useEffect, useCallback } from "react";
 
-const limitPokemons = 21;
+const limitPokemons = 20;
 
 export function useGetApi() {
 

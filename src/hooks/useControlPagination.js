@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 
-const LIMIT = 21;
+const LIMIT = 20;
 
 export default function useControlPagination(allPokemons) {
 

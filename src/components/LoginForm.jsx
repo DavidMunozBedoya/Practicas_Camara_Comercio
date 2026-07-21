@@ -21,7 +21,6 @@ export default function ReactHookForm() {
    const onSubmit = handleSubmit((data) => {
       toggleAuth(true);
       toast.success(`Bienvenido! ${data.email}`);
-      console.log(data);
    });
 
    return (

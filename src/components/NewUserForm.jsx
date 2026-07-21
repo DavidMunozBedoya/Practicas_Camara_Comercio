@@ -41,7 +41,7 @@ export default function NewUserForm() {
                <ButtonSpan className={'absolute top-3 right-3 hover:cursor-pointer'} action={() => { setlocation("/") }} icon={<IconX />} />
                <div className="space-y-5 md:space-y-4 sm:p-8 m-7">
                   <p className="text-2xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl pb-4">
-                     Nuevo Usuario
+                     Crear Nuevo Usuario
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                      {inputFields.map((field) => (

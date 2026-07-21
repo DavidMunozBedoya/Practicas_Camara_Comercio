@@ -1,7 +1,8 @@
 import * as Yup from "yup";
+import { IconOk } from "../assets/icons/tablerIcons";
 
 export const userLoginSchema = Yup.object().shape({
-   
+
    email: Yup.string()
       .trim()
       .lowercase()
@@ -50,7 +51,7 @@ export const createUserSchema = Yup.object().shape({
 
    passwordConfirm: Yup.string()
       .required('Confirme la contraseña!')
-      .oneOf([Yup.ref('password')], 'Las contraseñas deben coincidir. Revisalas!'),
+      .oneOf([Yup.ref('password')], 'No coinciden. Revisalas!'),
 
    terms: Yup.boolean()
       .oneOf([true], 'Debe aceptar los terminos!')
