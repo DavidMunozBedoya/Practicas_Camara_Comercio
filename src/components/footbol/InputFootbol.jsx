@@ -11,7 +11,7 @@ export default function InputFootbol() {
                name="selectedLeague"
                defaultValue={league}
                onChange={(e) => changeLeague(e.target.value)}
-               className="w-full appearance-none rounded-lg bg-slate-100 hover:bg-slate-200/80 px-4 py-2.5 text-base font-semibold text-blue-950 outline-none transition-colors cursor-pointer pr-10 focus:ring-2 focus:ring-slate-300"
+               className="w-full appearance-none border rounded-lg hover:bg-gray-200 p-2 text-base font-semibold text-blue-950 outline-none transition-colors cursor-pointer pr-10 focus:ring-2 focus:ring-slate-300"
             >
                <option value="1">Liga 1</option>
                <option value="2">Liga 2</option>

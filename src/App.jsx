@@ -8,7 +8,7 @@ function App() {
    return (
       <div>
          <Modal />
-         <Toaster />
+         <Toaster position="top-right" />
          <Loader />
          <AppRouter />
       </div>

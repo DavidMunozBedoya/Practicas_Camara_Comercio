@@ -20,7 +20,8 @@ export default function ReactHookForm() {
 
    const onSubmit = handleSubmit((data) => {
       toggleAuth(true);
-      toast.success(`Bienvenido! ${data.email}`);
+      console.log(data);
+      toast.success(`Bienvenido!`);
    });
 
    return (
@@ -47,7 +48,7 @@ export default function ReactHookForm() {
          <Button
             disabled={!isValid}
             text="Iniciar Sesión"
-            className="flex justify-center mt-3"
+            className="flex justify-center min-w-full"
          />
       </form>
    )

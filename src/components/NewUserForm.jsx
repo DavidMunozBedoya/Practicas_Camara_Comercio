@@ -69,6 +69,7 @@ export default function NewUserForm() {
                         disabled={!isValid}
                         type="submit"
                         text="Crear Cuenta"
+                        className="min-w-full"
                      />
                   </div>
                </div>

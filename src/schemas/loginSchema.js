@@ -1,5 +1,4 @@
 import * as Yup from "yup";
-import { IconOk } from "../assets/icons/tablerIcons";
 
 export const userLoginSchema = Yup.object().shape({
 
