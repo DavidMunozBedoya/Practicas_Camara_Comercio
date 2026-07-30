@@ -4,7 +4,7 @@ export default function InputFootbol() {
    const { league, changeLeague } = useFootbolLeagueStore();
 
    return (
-      <div className="flex flex-col justify-center items-center md:justify-center md:items-start gap-1.5 m-3">
+      <div className="flex flex-col justify-center items-center md:justify-center md:items-start gap-1.5 mx-3 my-3">
          <div className="relative">
             <select
                id="league-select-min"
@@ -18,7 +18,7 @@ export default function InputFootbol() {
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-blue-950/70">
                <svg
-                  className="h-4 w-4"
+                  className="size-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

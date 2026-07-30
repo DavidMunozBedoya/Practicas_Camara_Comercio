@@ -8,7 +8,7 @@ export default function FootbolPage() {
    const teams = useGetApiFootbol(league);
 
    return (
-      <div className="pt-24">
+      <div className="flex flex-col pt-24">
          <InputFootbol />
          <div className="text-center">
             <h1 className="text-2xl md:text-5xl font-medium tracking-tight">Clubes de Fútbol España Liga {league}</h1>

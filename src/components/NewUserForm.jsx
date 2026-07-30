@@ -27,7 +27,7 @@ export default function NewUserForm() {
    const onSubmit = async (data) => {
       try {
          await createUser(data)
-         toast.success(`Usuario creado exitosamente: ${data.name}`);
+         toast.success(`${data.name}, has creado tu usuario exitosamente`);
          reset();
       } catch (error) {
          toast.error(error)
@@ -37,7 +37,7 @@ export default function NewUserForm() {
    return (
       <form onSubmit={handleSubmit(onSubmit)} className="flex justify-center items-center min-h-screen bg-linear-to-br from-[#080722] via-[#161434] to-[#0c0066]">
          <div className="flex flex-col  items-center justify-center px-6 md:px-8 py-8 mx-auto lg:py-0 w-full">
-            <div className="relative w-full bg-white rounded-lg z-10 max-w-2xl overflow-auto max-h-[90vh]">
+            <div className="relative w-full bg-white rounded-lg z-10 max-w-2xl overflow-auto max-h-[90vh] shadow-2xl shadow-black">
                <ButtonSpan className={'absolute top-3 right-3 hover:cursor-pointer'} action={() => { setlocation("/") }} icon={<IconX />} />
                <div className="space-y-5 md:space-y-4 sm:p-8 m-7">
                   <p className="text-2xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl pb-4">
@@ -56,8 +56,6 @@ export default function NewUserForm() {
                            {...register(field.name)}
                         />
                      ))}
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
                      <Checkbox
                         label="Terminos y Condiciones*"
                         id="terms"
@@ -65,13 +63,13 @@ export default function NewUserForm() {
                         error={errors.terms}
                         {...register("terms")}
                      />
-                     <Button
-                        disabled={!isValid}
-                        type="submit"
-                        text="Crear Cuenta"
-                        className="min-w-full"
-                     />
                   </div>
+                  <Button
+                     disabled={!isValid}
+                     type="submit"
+                     text="Crear Cuenta"
+                     className="min-w-full"
+                  />
                </div>
             </div>
          </div>
