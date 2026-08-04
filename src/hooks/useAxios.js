@@ -1,13 +1,14 @@
 import axios from 'axios';
-/* import { useLoaderStore } from '../stores/useLoaderStore'; */
+import { urlPool }  from '../helpers/urlPool';
+// import { useLoaderStore } from '../stores/useLoaderStore';
 
-export const useAxios = (baseURL = 'https://pokeapi.co/api/v2/pokemon') => {
-  /*  const { toggleLoading } = useLoaderStore(); */
+export const useAxios = () => {
+   // const { toggleLoading } = useLoaderStore();
 
    const get = async (params) => {
       /* toggleLoading(true); */
       try {
-         const response = await axios.get(baseURL, {
+         const response = await axios.get(urlPool.urlPokemons, {
             params,
             headers: {
                "Content-Type": "application/json"
