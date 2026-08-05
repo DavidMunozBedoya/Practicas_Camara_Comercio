@@ -5,6 +5,8 @@ import { useAuthStore } from "../stores/useAuthStore";
 import { toast } from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { userLoginSchema } from "../schemas/loginSchema";
+import AvatarUser from "./AvatarUser";
+
 
 export default function ReactHookForm() {
    const {
@@ -24,8 +26,12 @@ export default function ReactHookForm() {
       toast.success(`Bienvenido!`);
    });
 
+
    return (
       <form onSubmit={onSubmit} className="space-y-4">
+         <div className="flex items-center justify-center">
+            <AvatarUser size={90} className="border-4 border-cyan-950 rounded-full p-1" />
+         </div>
          <h1 className="text-2xl font-bold text-center">Bienvenido!</h1>
          <FormInput
             label="Correo *"

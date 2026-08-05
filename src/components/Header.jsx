@@ -27,6 +27,11 @@ export default function Header({ children }) {
                   <span className="text-gray-500 hover:text-black">Fútbol</span>
                   {location.includes("/futbol") && <div className="bg-blue-600 w-full h-1 animate-pulse rounded-full" />}
                </Link>
+               |
+               <Link href="/calendario">
+                  <span className="text-gray-500 hover:text-black">Calendario</span>
+                  {location.includes("/calendario") && <div className="bg-green-600 w-full h-1 animate-pulse rounded-full "/>}
+               </Link>
                <div className="fixed right-6">
                   <ButtonSpan action={() => ToastConfirm({ onConfirm: () => toggleAuth(false), text: "¿Desea cerrar sesión?" })}
                      className={'hover:cursor-pointer text-gray-500 hover:text-[#080722] '}

@@ -8,6 +8,7 @@ import { PrivateRoutes } from './PrivateRoutes'
 import { NotFound } from '../components/NotFound'
 import { useAuthStore } from '../stores/useAuthStore'
 import NewUserForm from '../components/NewUserForm'
+import CalendarPage from '../pages/CalendarPage'
 
 export const AppRouter = () => {
    const { isAuth } = useAuthStore();
@@ -22,6 +23,7 @@ export const AppRouter = () => {
                <Header>
                   <Route path="pokemon" children={<PokemonsPage />} />
                   <Route path="futbol" children={<FootbolPage />} />
+                  <Route path="calendario" children={<CalendarPage />} />
                </Header>
             </PrivateRoutes>
          </Route>

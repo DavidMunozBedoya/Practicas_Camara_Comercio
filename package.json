@@ -12,6 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
     "@material-tailwind/react": "^2.1.10",
+    "antd": "^6.5.3",
     "axios": "^1.17.0",
     "dotenv": "^17.4.2",
     "formik": "^2.4.9",
