@@ -14,7 +14,7 @@ export const PokemonsPage = () => {
    const { openModal } = useModalStore();
 
    return (
-      <div className="pt-24">
+      <div className="pt-30">
          <div className="text-center">
             <h1 className="text-5xl font-medium tracking-tight">Pokédex</h1>
          </div>
